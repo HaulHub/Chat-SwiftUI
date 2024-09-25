@@ -63,6 +63,8 @@ struct UIList<MessageContent: View, InputView: View>: UIViewRepresentable {
         tableView.backgroundColor = UIColor(theme.colors.mainBackground)
         tableView.scrollsToTop = false
         tableView.isScrollEnabled = isScrollEnabled
+        //mleavy: dismiss the keyboard on any chat view scroll
+        tableView.keyboardDismissMode = .onDrag
 
         NotificationCenter.default.addObserver(forName: .onScrollToBottom, object: nil, queue: nil) { _ in
             DispatchQueue.main.async {
